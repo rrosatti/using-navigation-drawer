@@ -1,7 +1,9 @@
-package com.example.rodri.usingnavigationdrawer;
+package com.example.rodri.usingnavigationdrawer.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.rodri.usingnavigationdrawer.R;
 
 public class MainActivity extends AppCompatActivity {
 
