@@ -34,7 +34,7 @@ public class DrawerItemAdapter extends ArrayAdapter<DrawerItem> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     }
 
     @Override
