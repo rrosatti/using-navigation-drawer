@@ -55,5 +55,5 @@ public class DrawerItem {
     public void setCounterVisibility(boolean isCounterVisible) {
         this.isCounterVisible = isCounterVisible;
     }
-    
+
 }
