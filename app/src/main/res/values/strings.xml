@@ -27,4 +27,7 @@
 
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
+
+    <!-- TextView -->
+    <string name="home_view">Home View</string>
 </resources>
