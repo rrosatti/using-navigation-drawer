@@ -1,10 +1,14 @@
 package com.example.rodri.usingnavigationdrawer.ui.activity;
 
+import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -93,5 +97,60 @@ public class MainActivity extends AppCompatActivity {
         drawerListView = (ListView) findViewById(R.id.sliderMenuListView);
 
         drawerItems = new ArrayList<>();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (drawerToggle.onOptionsItemSelected(item)) {
+            return true
+        }
+
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // if the drawer is opened, hide the action items
+        boolean drawerOpen = drawerLayout.isDrawerOpen(drawerListView);
+        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public void setTitle(CharSequence title) {
+        this.title = title;
+        getActionBar().setTitle(title);
+    }
+
+    /**
+     * It must be called during the onPostCreate() and onConfigurationChanged(), when using the ActionBarDrawerToggle
+     *
+     * @param savedInstanceState
+     */
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState occurred
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // Pass any configuration change to the drawer toggle
+        drawerToggle.onConfigurationChanged(newConfig);
     }
 }
