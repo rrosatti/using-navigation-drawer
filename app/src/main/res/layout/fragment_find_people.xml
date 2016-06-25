@@ -3,20 +3,20 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txtHomeLabel"
+        android:id="@+id/txtFindPeopleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="16dp"
-        android:text="@string/home_view" />
+        android:text="@string/find_people_view" />
 
     <ImageView
-        android:id="@+id/imgHome"
+        android:id="@+id/imgFindPeople"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtHomeLabel"
-        android:src="@drawable/ic_home"
+        android:layout_below="@+id/txtFindPeopleLabel"
+        android:src="@drawable/ic_people"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp" />
 
