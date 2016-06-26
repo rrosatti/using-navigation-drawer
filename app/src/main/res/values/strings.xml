@@ -32,4 +32,5 @@
     <string name="home_view">Home View</string>
     <string name="find_people_view">Find People View</string>
     <string name="photos_view">Photos View</string>
+    <string name="communities_view">Communities View</string>
 </resources>
