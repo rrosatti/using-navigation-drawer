@@ -31,4 +31,5 @@
     <!-- TextView -->
     <string name="home_view">Home View</string>
     <string name="find_people_view">Find People View</string>
+    <string name="photos_view">Photos View</string>
 </resources>
