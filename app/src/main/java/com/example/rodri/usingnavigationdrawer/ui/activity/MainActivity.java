@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
         drawerListView.setAdapter(drawerItemAdapter);
 
         // Enable Action Bar and making it behave as a Toggle Button
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         // This is just a test
         Toolbar toolbar = new Toolbar(this);
@@ -85,13 +85,13 @@ public class MainActivity extends AppCompatActivity {
 
 
                 public void onDrawerClosed(View view) {
-                    getActionBar().setTitle(title);
+                    getSupportActionBar().setTitle(title);
                     // call onPreparedOptionsMenu() to show action bar icons
                     invalidateOptionsMenu();
                 }
 
                 public void onDrawerOpened(View drawerView) {
-                    getActionBar().setTitle(drawerTitle);
+                    getSupportActionBar().setTitle(drawerTitle);
                     // call onPreparedOptionsMenu() to hide action bar icons
                     invalidateOptionsMenu();
                 }
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void setTitle(CharSequence title) {
         this.title = title;
-        getActionBar().setTitle(title);
+        getSupportActionBar().setTitle(title);
     }
 
     /**
