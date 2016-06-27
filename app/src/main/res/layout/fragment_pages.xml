@@ -3,21 +3,21 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txtFindPeopleLabel"
+        android:id="@+id/txtPagesLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="16sp"
-        android:text="@string/find_people_view" />
+        android:text="@string/pages_view" />
 
     <ImageView
-        android:id="@+id/imgFindPeople"
+        android:id="@+id/imgPages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtFindPeopleLabel"
-        android:src="@drawable/ic_people"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp" />
+        android:layout_below="@+id/txtPagesLabel"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_pages" />
 
 </RelativeLayout>
