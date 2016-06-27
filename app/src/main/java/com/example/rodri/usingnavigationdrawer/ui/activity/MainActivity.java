@@ -4,7 +4,9 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -74,9 +76,12 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        // Used to change the icon of Navigation Drawer - 'Gambiarra'
+        Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_drawer, getTheme());
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
+
         // This is just a test
         Toolbar toolbar = new Toolbar(this);
-        toolbar.setLogo(R.drawable.ic_drawer);
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
                 toolbar, //menu toggle icon
