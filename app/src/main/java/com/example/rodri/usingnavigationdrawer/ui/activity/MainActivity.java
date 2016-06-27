@@ -1,5 +1,7 @@
 package com.example.rodri.usingnavigationdrawer.ui.activity;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.support.annotation.Nullable;
@@ -8,12 +10,20 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.rodri.usingnavigationdrawer.R;
+import com.example.rodri.usingnavigationdrawer.fragment.CommunitiesFragment;
+import com.example.rodri.usingnavigationdrawer.fragment.FindPeopleFragment;
+import com.example.rodri.usingnavigationdrawer.fragment.HomeFragment;
+import com.example.rodri.usingnavigationdrawer.fragment.PagesFragment;
+import com.example.rodri.usingnavigationdrawer.fragment.PhotosFragment;
+import com.example.rodri.usingnavigationdrawer.fragment.WhatsHotFragment;
 import com.example.rodri.usingnavigationdrawer.model.DrawerItem;
 import com.example.rodri.usingnavigationdrawer.ui.adapter.DrawerItemAdapter;
 
@@ -92,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
             displayView(0);
         }
 
+        drawerListView.setOnItemClickListener(new SlideMenuClickListener());
+
     }
 
     public void initialize() {
@@ -158,5 +170,61 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggle
         drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    private class SlideMenuClickListener implements ListView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            displayView(position);
+        }
+    }
+
+    /**
+     *
+     * This method will display the fragment view according to the chosen menu item
+     *
+     * @param position
+     */
+    private void displayView(int position) {
+
+        Fragment fragment = null;
+
+        switch (position) {
+            case 0:
+                fragment = new HomeFragment();
+                break;
+            case 1:
+                fragment = new FindPeopleFragment();
+                break;
+            case 2:
+                fragment = new PhotosFragment();
+                break;
+            case 3:
+                fragment = new CommunitiesFragment();
+                break;
+            case 4:
+                fragment = new PagesFragment();
+                break;
+            case 5:
+                fragment = new WhatsHotFragment();
+                break;
+            default:
+                break;
+        }
+
+        if (fragment != null) {
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment).commit();
+
+            drawerListView.setItemChecked(position, true);
+            drawerListView.setSelection(position);
+            setTitle(menuTitles[position]);
+            drawerLayout.closeDrawer(drawerListView);
+        } else {
+            Log.e("MainActivity", "Error while trying to create fragment");
+        }
+
     }
 }
